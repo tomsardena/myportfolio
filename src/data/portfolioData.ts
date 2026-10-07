@@ -1,3 +1,12 @@
+/**
+ * PORTFOLIO DATA ARCHITECTURE
+ * -------------------------------------------------------------
+ * Clean, centralized, and fully editable.
+ * All personal identity, projects, and contact channels are
+ * structured as editable placeholders for the portfolio owner.
+ * NO fictional entities, fake clients, fake awards, or fabricated statistics.
+ */
+
 export interface ProjectCaseStudy {
   id: string;
   number: string;
@@ -5,307 +14,254 @@ export interface ProjectCaseStudy {
   subtitle: string;
   category: string;
   year: string;
-  clientOrRole: string;
-  duration: string;
-  heroImage: string;
-  galleryImages: string[];
-  tagline: string;
-  overview: string;
-  challenge: string;
-  solution: string;
-  architecture: {
-    stack: string[];
-    performance: string;
-    highlights: string[];
-  };
-  metrics: {
-    label: string;
-    value: string;
-    description: string;
-  }[];
+  role: string;
+  description: string;
+  image: string;
+  videoUrl?: string;
+  technologies: string[];
   liveUrl?: string;
   githubUrl?: string;
+  caseStudy: {
+    intro: string;
+    challenge: string;
+    idea: string;
+    process: string;
+    build: string;
+    result: string;
+    galleryImages: string[];
+  };
 }
 
-export interface CapabilityItem {
+export interface CraftPillar {
   id: string;
   number: string;
   title: string;
-  description: string;
+  tagline: string;
   disciplines: string[];
-  deliverables: string[];
-  methodology: string;
-  quote: string;
-}
-
-export interface ArchiveItem {
-  year: string;
-  title: string;
-  type: string;
-  focus: string;
-  status: string;
-  linkText: string;
+  statement: string;
 }
 
 export const PORTFOLIO_DATA = {
   creator: {
-    name: "Aurelius Vane",
-    title: "Creative Director & Technical Architect",
-    location: "Stockholm / London / Remote",
-    coordinates: "59.3293° N, 18.0686° E",
-    status: "Available for select Q3/Q4 digital commissions",
-    timezone: "Europe/Stockholm",
-    email: "aurelius.vane.creative@gmail.com",
-    bio: "Blending cinematic art direction, custom WebGL compute pipelines, and full-stack software architecture. Over a decade engineering high-retention digital flagships and interactive brand experiences.",
-    portraitImage: "/images/portrait_aurelius_vane_1791386286727.jpg",
-    statement: "I do not build static websites. I compose interactive environments that evoke emotional resonance and command memorability.",
+    name: "[YOUR NAME]",
+    role: "[CREATIVE DEVELOPER & DESIGNER]",
+    location: "[YOUR LOCATION]",
+    availability: "[AVAILABLE FOR COMMISSIONS]",
+    email: "[your.email@domain.com]",
+    heroStatement: "I CRAFT DIGITAL EXPERIENCES THAT PEOPLE REMEMBER.",
+    heroSubstatement:
+      "[A short cinematic positioning statement describing your work at the intersection of design, code, and visual storytelling.]",
+    manifesto: {
+      line1: "I BUILD...",
+      line2: "...DIGITAL EXPERIENCES...",
+      line3: "...THAT PEOPLE REMEMBER.",
+      supportingText:
+        "[Add your design philosophy here. Describe how you approach code as a creative medium and how every scroll, transition, and composition serves the narrative.]",
+    },
   },
 
   socials: [
-    { label: "GitHub", url: "https://github.com", handle: "@aurelius-vane" },
-    { label: "ReadCV", url: "https://read.cv", handle: "aurelius" },
-    { label: "X / Twitter", url: "https://x.com", handle: "@aurelius_vane" },
-    { label: "LinkedIn", url: "https://linkedin.com", handle: "/in/aureliusvane" },
+    { label: "GitHub", url: "https://github.com/[your-handle]", handle: "@[github-handle]" },
+    { label: "LinkedIn", url: "https://linkedin.com/in/[your-handle]", handle: "in/[handle]" },
+    { label: "X / Twitter", url: "https://x.com/[your-handle]", handle: "@[x-handle]" },
+    { label: "ReadCV", url: "https://read.cv/[your-handle]", handle: "read.cv/[handle]" },
   ],
 
   projects: [
     {
-      id: "lumina-chronicles",
+      id: "project-01",
       number: "01",
-      title: "Lumina Chronicles",
-      subtitle: "Interactive Architectural Cinema",
-      category: "Interactive Direction",
-      year: "2026",
-      clientOrRole: "Art Direction & WebGL Engineering",
-      duration: "4 Months",
-      heroImage: "/images/project_lumina_chronicles_1791386245032.jpg",
-      galleryImages: [
-        "/images/project_lumina_chronicles_1791386245032.jpg",
-        "/images/project_kinetic_vortex_1791386255557.jpg",
-      ],
-      tagline: "A spatial narrative journey through brutalist monolithic pavilions submerged in dusk.",
-      overview:
-        "Commissioned as a launch vehicle for an avant-garde architectural collective, Lumina Chronicles is an interactive digital essay exploring light, stone, and memory. The experience renders progressive volumetric illumination in real-time within the browser canvas.",
-      challenge:
-        "Rendering physically-accurate volumetric light scattering through dense atmospheric fog at 60 frames per second on mobile and low-power devices without thermal throttling or frame degradation.",
-      solution:
-        "Engineered a bespoke multi-pass raymarching GLSL shader utilizing blue-noise jittering and half-resolution temporal reconstruction, paired with a camera choreography system driven by unified scroll kinematics.",
-      architecture: {
-        stack: ["WebGL", "Three.js", "GLSL Raymarching", "TypeScript", "Next.js", "Web Audio API"],
-        performance: "Sub-16ms frame budget · 98 Lighthouse Score · Zero raster thrashing",
-        highlights: [
-          "Custom volumetric fog post-processing pass",
-          "Procedural ambient soundscape generated via Web Audio oscillator banks",
-          "Dynamic camera splines synchronized with editorial typographic reveals",
+      title: "[PROJECT 01: CINEMATIC SHOWCASE]",
+      subtitle: "[Interactive Digital Experience]",
+      category: "[Creative Development]",
+      year: "[2026]",
+      role: "[Lead Design & Development]",
+      description:
+        "[A feature presentation of your primary showcase project. Replace this placeholder with a short description of the core concept, artistic direction, and engineering execution.]",
+      image: "/images/project_lumina_chronicles_1791386245032.jpg",
+      technologies: ["[React / Next.js]", "[GSAP / Motion]", "[Tailwind CSS]", "[WebGL / Canvas]"],
+      liveUrl: "https://[your-project-link.com]",
+      githubUrl: "https://github.com/[your-handle]/[project-repo]",
+      caseStudy: {
+        intro:
+          "[Describe the origin, client, or personal vision behind this project. What was the core creative brief?]",
+        challenge:
+          "[What was the primary design hurdle, performance constraint, or technical problem that needed to be solved?]",
+        idea:
+          "[What was the governing aesthetic and architectural concept you developed to solve the problem?]",
+        process:
+          "[How did you iterate between visual prototyping, typography direction, and responsive layout testing?]",
+        build:
+          "[What frameworks, animation choreography, shader math, and state management did you build with?]",
+        result:
+          "[Add your real project result, user feedback, launch milestone, or personal takeaway here.]",
+        galleryImages: [
+          "/images/project_lumina_chronicles_1791386245032.jpg",
+          "/images/project_kinetic_vortex_1791386255557.jpg",
         ],
       },
-      metrics: [
-        { label: "Average Session", value: "4m 18s", description: "3.2x industry benchmark for portfolio showcases" },
-        { label: "Frame Rate", value: "60 FPS", description: "Rock-solid across 99.4% tested hardware profiles" },
-        { label: "Accolades", value: "FWA of the Day", description: "Honored for technical art and real-time storytelling" },
-      ],
     },
     {
-      id: "kinetic-vortex",
+      id: "project-02",
       number: "02",
-      title: "Kinetic Vortex",
-      subtitle: "Audio-Reactive Fluid Installation",
-      category: "Generative Audio-Visual",
-      year: "2025",
-      clientOrRole: "Lead Creative Technologist",
-      duration: "3 Months",
-      heroImage: "/images/project_kinetic_vortex_1791386255557.jpg",
-      galleryImages: [
-        "/images/project_kinetic_vortex_1791386255557.jpg",
-        "/images/project_solis_atelier_1791386264775.jpg",
-      ],
-      tagline: "Real-time GPGPU particle physics responding to spatial acoustics and cursor gravity.",
-      overview:
-        "An exploration into computational aesthetics. Kinetic Vortex simulates over 150,000 fluid particles orbiting a strange attractor, computing forces directly inside custom GPU compute textures while responding to musical frequency bands.",
-      challenge:
-        "Maintaining real-time physical simulation fidelity for 150K independent particles while allowing interactive mouse displacement and dynamic color palette shifting without dropping a single frame.",
-      solution:
-        "Architected a ping-pong float frame-buffer pipeline running curl noise vectors and Verlet integration on the GPU, avoiding CPU-GPU synchronization bottlenecks completely.",
-      architecture: {
-        stack: ["GPGPU Curl Noise", "GLSL Compute", "Web Audio FFT", "React", "Tailwind CSS"],
-        performance: "150,000 particles at 60fps · Zero memory leaks after 3-hour stress test",
-        highlights: [
-          "FFT frequency-band energy decomposition driving particle velocity",
-          "Interactive cursor gravity well with damping inertia",
-          "Configurable spectral chromatic dispersion shaders",
+      title: "[PROJECT 02: SPATIAL SYSTEM]",
+      subtitle: "[Generative Audio-Visual Project]",
+      category: "[Experimental Code]",
+      year: "[2025]",
+      role: "[Creative Engineering]",
+      description:
+        "[A showcase of an interactive, algorithmic, or motion-heavy web project. Describe how user interaction drives the visual scene.]",
+      image: "/images/project_kinetic_vortex_1791386255557.jpg",
+      technologies: ["[Interactive Canvas]", "[GSAP]", "[TypeScript]", "[Web Audio API]"],
+      liveUrl: "https://[your-project-link.com]",
+      githubUrl: "https://github.com/[your-handle]/[project-repo]",
+      caseStudy: {
+        intro:
+          "[Provide background context on the purpose of this project, whether commercial, client-based, or experimental.]",
+        challenge:
+          "[Detail the specific complexity, such as high frame-rate rendering, responsiveness across viewports, or UX accessibility.]",
+        idea:
+          "[Explain the visual motif, typography hierarchy, and interaction mechanics.]",
+        process:
+          "[Explain how you structured the code, designed the assets, and refined the motion curves.]",
+        build:
+          "[Break down the technical stack, state architecture, and render loop optimizations.]",
+        result:
+          "[Summarize the launch outcome, reception, or engineering milestones achieved.]",
+        galleryImages: [
+          "/images/project_kinetic_vortex_1791386255557.jpg",
+          "/images/project_solis_atelier_1791386264775.jpg",
         ],
       },
-      metrics: [
-        { label: "Simulated Particles", value: "150,000", description: "Real-time float precision compute" },
-        { label: "Render Overhead", value: "4.2 ms", description: "Per-frame GPU draw time" },
-        { label: "User Interaction", value: "88%", description: "Visitors engaged with sound reactivity" },
-      ],
     },
     {
-      id: "solis-atelier",
+      id: "project-03",
       number: "03",
-      title: "Solis Atelier",
-      subtitle: "Haute Horlogerie Digital Flagship",
-      category: "Luxury E-Commerce & 3D",
-      year: "2025",
-      clientOrRole: "Design Director & 3D Lead",
-      duration: "5 Months",
-      heroImage: "/images/project_solis_atelier_1791386264775.jpg",
-      galleryImages: [
-        "/images/project_solis_atelier_1791386264775.jpg",
-        "/images/project_neoterra_satellite_1791386276521.jpg",
-      ],
-      tagline: "Microscopic precision meets digital luxury. A bespoke 3D tourbillon exploration.",
-      overview:
-        "Crafted for an independent Geneva horology house, Solis Atelier provides an editorial e-commerce experience that deconstructs a 318-component mechanical skeleton watch in real-time 3D, allowing collectors to inspect hairspring tolerances and hand-chamfered bridges.",
-      challenge:
-        "Delivering micro-millimeter visual realism with brushed titanium, rubies, and anti-reflective sapphire crystal while keeping initial bundle transfer under 3.5 megabytes.",
-      solution:
-        "Employed progressive mesh LOD streaming, Draco geometry compression, and custom PBR shader micro-faceting routines that simulate anisotropic radial brushing without heavy texture maps.",
-      architecture: {
-        stack: ["Three.js", "Draco Compression", "Custom Anisotropic PBR", "Next.js", "Motion"],
-        performance: "2.8MB total assets · 1.1s First Contentful Paint globally",
-        highlights: [
-          "Exploded mechanical view synchronized with editorial scroll steps",
-          "Dynamic lighting environment replicating Swiss daylight shifts",
-          "Seamless checkout and bespoke concierge appointment scheduler",
+      title: "[PROJECT 03: DIGITAL FLAGSHIP]",
+      subtitle: "[Editorial Web Application]",
+      category: "[Full-Stack & UX]",
+      year: "[2025]",
+      role: "[Full-Stack Development]",
+      description:
+        "[An editorial, high-end digital flagship or interactive product experience combining refined typography and micro-interactions.]",
+      image: "/images/project_solis_atelier_1791386264775.jpg",
+      technologies: ["[Next.js]", "[TypeScript]", "[Tailwind CSS]", "[Animation Pipeline]"],
+      liveUrl: "https://[your-project-link.com]",
+      githubUrl: "https://github.com/[your-handle]/[project-repo]",
+      caseStudy: {
+        intro:
+          "[Overview of the flagship project goals, audience, and visual tone.]",
+        challenge:
+          "[Explain what made this build demanding—e.g. typography balance, layout integrity, or asset optimization.]",
+        idea:
+          "[Describe the visual storytelling, editorial structure, and user flow decisions.]",
+        process:
+          "[Document the design tokens, component library assembly, and responsive testing.]",
+        build:
+          "[Explain the Next.js setup, caching strategies, and semantic accessibility implementations.]",
+        result:
+          "[Detail the delivered product, customer sentiment, or performance audit metrics.]",
+        galleryImages: [
+          "/images/project_solis_atelier_1791386264775.jpg",
+          "/images/project_neoterra_satellite_1791386276521.jpg",
         ],
       },
-      metrics: [
-        { label: "Conversion Lift", value: "+142%", description: "Increase in VIP private viewings requested" },
-        { label: "Asset Size", value: "2.8 MB", description: "Draco-compressed from 48MB CAD source" },
-        { label: "Satisfaction", value: "99.2%", description: "Client and collector sentiment rating" },
-      ],
     },
     {
-      id: "neo-terra",
+      id: "project-04",
       number: "04",
-      title: "Neo-Terra",
-      subtitle: "Environmental Topography Engine",
-      category: "Scientific & Spatial Data",
-      year: "2024",
-      clientOrRole: "Systems Architect & Visualization Engineer",
-      duration: "3.5 Months",
-      heroImage: "/images/project_neoterra_satellite_1791386276521.jpg",
-      galleryImages: [
-        "/images/project_neoterra_satellite_1791386276521.jpg",
-        "/images/project_lumina_chronicles_1791386245032.jpg",
-      ],
-      tagline: "Real-time elevation and oceanic biophony mapped from open satellite streams.",
-      overview:
-        "An open data visualization tool built for environmental researchers and climate journalists. Neo-Terra transforms NASA Landsat and Sentinel-2 multi-spectral data into an interactive, photorealistic midnight globe with customizable elevation exaggerations and oceanic tide currents.",
-      challenge:
-        "Processing raster tile elevations on the fly while offering smooth camera translation from low Earth orbit down to volcanic fjord crevasses.",
-      solution:
-        "Built a quadtree tile server combined with GPU vertex displacement that computes real-time contour vectors and normal mapping directly from 16-bit elevation DEM images.",
-      architecture: {
-        stack: ["WebGPU / WebGL2", "GeoTIFF Processing", "TypeScript", "Tailwind CSS"],
-        performance: "60 FPS zoom transitions · Dynamic tile level-of-detail",
-        highlights: [
-          "GPU-based normal reconstruction from satellite elevation heightmaps",
-          "Custom dark-mode cartographic styling inspired by topographic prints",
-          "Data export pipeline for print-resolution SVG vector contours",
+      title: "[PROJECT 04: EXPLORATORY PLATFORM]",
+      subtitle: "[Interactive Tool & Visualization]",
+      category: "[Data & Interface]",
+      year: "[2024]",
+      role: "[Frontend Architecture]",
+      description:
+        "[A sophisticated web tool, interactive dashboard, or canvas visualization demonstrating high-density data and visual hierarchy.]",
+      image: "/images/project_neoterra_satellite_1791386276521.jpg",
+      technologies: ["[React]", "[TypeScript]", "[Interactive Visuals]", "[Performance Optimization]"],
+      liveUrl: "https://[your-project-link.com]",
+      githubUrl: "https://github.com/[your-handle]/[project-repo]",
+      caseStudy: {
+        intro:
+          "[Context and goals of this exploratory application or data platform.]",
+        challenge:
+          "[Key challenges around information architecture, responsiveness, and clean component separation.]",
+        idea:
+          "[The visual approach chosen to make dense information feel clear, intuitive, and visually compelling.]",
+        process:
+          "[Iteration cycles, user feedback collection, and edge-case handling.]",
+        build:
+          "[Architecture decisions, component encapsulation, and GPU-conscious animations.]",
+        result:
+          "[Final deployment, test coverage, and project takeaways.]",
+        galleryImages: [
+          "/images/project_neoterra_satellite_1791386276521.jpg",
+          "/images/project_lumina_chronicles_1791386245032.jpg",
         ],
       },
-      metrics: [
-        { label: "Data Processed", value: "14 TB", description: "Satellite elevation and sensory rasters" },
-        { label: "Active Researchers", value: "35,000+", description: "Monthly active scientific users worldwide" },
-        { label: "Render Latency", value: "8 ms", description: "Per-frame projection re-calculation" },
-      ],
     },
   ] as ProjectCaseStudy[],
 
-  capabilities: [
+  craftPillars: [
     {
-      id: "creative-direction",
+      id: "pillar-01",
       number: "01",
-      title: "Creative Direction & Spatial UX",
-      description:
-        "Directing the visual rhythm, cinematic pacing, and emotional resonance of interactive digital works. Treating the browser window as an intentional camera lens.",
-      disciplines: ["Art Direction", "Cinematic Pacing", "Editorial Layouts", "Motion Choreography", "Typography Systems"],
-      deliverables: ["Visual Direction Guidelines", "High-Fidelity Interactive Prototypes", "Editorial Typographic Scales", "Motion Scripts"],
-      methodology:
-        "Every project begins with a narrative hypothesis. We define the visual tension, typographic contrast, and camera kinematics before a single line of production code is written.",
-      quote: "Motion is not decoration; motion is camera control and cognitive focus.",
+      title: "CREATIVE DEVELOPMENT",
+      tagline: "[Interactive motion, WebGL, shaders & bespoke canvas art]",
+      disciplines: [
+        "[GSAP & ScrollTrigger]",
+        "[WebGL & Shaders]",
+        "[Camera Choreography]",
+        "[Kinetic Typography]",
+        "[Micro-Interactions]",
+      ],
+      statement:
+        "[Describe your approach to creative code: treating the viewport as a camera, pacing user attention, and delivering fluid 60fps animations.]",
     },
     {
-      id: "webgl-shaders",
+      id: "pillar-02",
       number: "02",
-      title: "Real-Time 3D & GLSL Shaders",
-      description:
-        "Engineering high-performance GPU shaders, procedural particle systems, and photorealistic PBR materials that run with fluid grace across desktop and handheld hardware.",
-      disciplines: ["Three.js / WebGL", "Custom GLSL Shaders", "GPGPU Simulation", "Raymarching", "Post-Processing Pipelines"],
-      deliverables: ["Optimized 3D Experiences", "Procedural Asset Generators", "Frame-Budget Audits", "Graceful Fallback Logic"],
-      methodology:
-        "GPU compute must be disciplined. We prioritize lightweight math, blue-noise sampling, and memory reuse to achieve cinematic quality without heating the user's laptop.",
-      quote: "True technical luxury is delivering breathtaking visual fidelity within a 16ms budget.",
+      title: "FRONTEND ARCHITECTURE",
+      tagline: "[Scalable, accessible, and performant web foundations]",
+      disciplines: [
+        "[Next.js & React]",
+        "[TypeScript]",
+        "[Tailwind CSS]",
+        "[WCAG AA Accessibility]",
+        "[Core Web Vitals]",
+      ],
+      statement:
+        "[Describe your engineering standards: strict TypeScript typing, modular component boundaries, semantic markup, and zero layout thrash.]",
     },
     {
-      id: "frontend-architecture",
+      id: "pillar-03",
       number: "03",
-      title: "Modern Frontend Architecture",
-      description:
-        "Building rock-solid, production-grade applications using Next.js, React, TypeScript, and modern CSS that maintain pristine performance, SEO fidelity, and WCAG AA accessibility.",
-      disciplines: ["Next.js App Router", "TypeScript Strict Typing", "State Orchestration", "Micro-Interactions", "SEO & OpenGraph"],
-      deliverables: ["Component Design Systems", "Responsive Viewport Systems", "Accessible Semantics", "Zero-Clutter Codebases"],
-      methodology:
-        "Code should read as clearly as typography. Strict component boundaries, zero unnecessary libraries, and zero layout thrash.",
-      quote: "Elegance on screen requires architectural discipline beneath the hood.",
+      title: "UI / UX ART DIRECTION",
+      tagline: "[Editorial visual hierarchy, typography & brand identity]",
+      disciplines: [
+        "[Editorial Layouts]",
+        "[Typographic Pairing]",
+        "[Design Systems]",
+        "[Wireframing & Prototyping]",
+        "[Spatial Math & Grids]",
+      ],
+      statement:
+        "[Describe your eye for design: high-contrast typography, controlled whitespace, purposeful color systems, and restraint against generic AI tropes.]",
     },
     {
-      id: "audio-spatial",
+      id: "pillar-04",
       number: "04",
-      title: "Interactive Soundscapes & Micro-Acoustics",
-      description:
-        "Crafting procedural ambient drone synthesizers and tactile audio cues that amplify digital tangibility without relying on bulky audio downloads.",
-      disciplines: ["Web Audio API", "Parametric Synthesis", "Audio-Reactive FFT", "Bespoke Haptic Cues", "User-Controlled Soundscapes"],
-      deliverables: ["Synthesized Ambient Engines", "Spatial Audio Panners", "Tactile Click Systems", "Mute State Persistence"],
-      methodology:
-        "Sound must always ask for permission and never startle. Procedural synthesis ensures zero network bandwidth and infinite generative variation.",
-      quote: "Sound transforms visual pixels into a physical space.",
+      title: "FULL-STACK & TOOLING",
+      tagline: "[End-to-end applications, APIs & modern developer workflows]",
+      disciplines: [
+        "[API Architecture]",
+        "[State Orchestration]",
+        "[Database Integrations]",
+        "[CI/CD & Deployment]",
+        "[Automation Pipelines]",
+      ],
+      statement:
+        "[Describe your full-stack capabilities: connecting client-side interactive choreography with reliable server infrastructure.]",
     },
-  ] as CapabilityItem[],
-
-  archive: [
-    {
-      year: "2026",
-      title: "Chroma Shift: Anamorphic Flare Shaders in GLSL",
-      type: "Technical Essay",
-      focus: "Graphics & Shaders",
-      status: "Published",
-      linkText: "Read Paper",
-    },
-    {
-      year: "2025",
-      title: "Aetheria: Procedural Volumetric Clouds in WebGL",
-      type: "Open Source",
-      focus: "Three.js / GLSL",
-      status: "Production",
-      linkText: "Inspect Repo",
-    },
-    {
-      year: "2025",
-      title: "The Death of the Card Grid: Editorial Web Direction",
-      type: "Keynote Talk",
-      focus: "Creative Direction",
-      status: "Archived",
-      linkText: "Watch Recording",
-    },
-    {
-      year: "2024",
-      title: "Vespera: Kinetic Typography Experiment",
-      type: "Digital Artifact",
-      focus: "Motion & Canvas",
-      status: "Interactive",
-      linkText: "Launch Lab",
-    },
-    {
-      year: "2024",
-      title: "Zero-Latency Spatial Audio in Browser Worklets",
-      type: "Research Note",
-      focus: "Web Audio",
-      status: "Published",
-      linkText: "Read Notes",
-    },
-  ] as ArchiveItem[],
+  ] as CraftPillar[],
 };
