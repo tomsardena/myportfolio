@@ -7,45 +7,69 @@ import { gsap, ScrollTrigger, isReducedMotion } from '@/src/lib/animations';
 
 export default function CinematicHero() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const bgImageRef = useRef<HTMLDivElement>(null);
-  const textContentRef = useRef<HTMLDivElement>(null);
+  const stickyFrameRef = useRef<HTMLDivElement>(null);
+  const bgLayerRef = useRef<HTMLDivElement>(null);
+  const apertureRef = useRef<HTMLDivElement>(null);
+  const titleLayerRef = useRef<HTMLDivElement>(null);
+  const metaLayerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (isReducedMotion() || !containerRef.current) return;
 
     const ctx = gsap.context(() => {
-      // Cinematic Camera Zoom Timeline
+      // Camera choreographic timeline tied to the sticky 280vh scroll track
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
           start: 'top top',
-          end: '+=100%',
-          pin: true,
+          end: 'bottom bottom',
           scrub: 1,
-          anticipatePin: 1,
         },
       });
 
-      // Camera flies inward: background scales, text recedes into depth
+      // Layer 1: Background atmosphere moves through depth
       tl.to(
-        bgImageRef.current,
+        bgLayerRef.current,
         {
-          scale: 1.25,
-          yPercent: 8,
+          scale: 1.35,
+          yPercent: 12,
+          filter: 'brightness(0.65) contrast(1.15)',
           ease: 'none',
         },
         0
       );
 
+      // Layer 2: Aperture frame expands to unlock full viewport
       tl.to(
-        textContentRef.current,
+        apertureRef.current,
         {
-          yPercent: -20,
-          opacity: 0,
-          scale: 0.95,
+          scale: 1.1,
+          opacity: 0.2,
           ease: 'power1.inOut',
         },
+        0.2
+      );
+
+      // Layer 3: Typography separates from the image and flies forward/upward
+      tl.to(
+        titleLayerRef.current,
+        {
+          yPercent: -45,
+          scale: 1.06,
+          opacity: 0,
+          ease: 'power1.in',
+        },
         0
+      );
+
+      tl.to(
+        metaLayerRef.current,
+        {
+          opacity: 0,
+          y: -20,
+          ease: 'power1.in',
+        },
+        0.1
       );
     }, containerRef);
 
@@ -63,100 +87,89 @@ export default function CinematicHero() {
   };
 
   return (
-    <section
-      ref={containerRef}
-      className="relative w-full h-screen overflow-hidden bg-[#08080a] flex items-center justify-center"
-    >
-      {/* Visual Environment / Cinematic Background Plate */}
+    <div ref={containerRef} className="relative h-[280vh] w-full bg-[#09090b]">
+      {/* Sticky Camera Viewport */}
       <div
-        ref={bgImageRef}
-        className="absolute inset-0 w-full h-full will-change-transform scale-100 origin-center pointer-events-none"
+        ref={stickyFrameRef}
+        className="sticky top-0 h-screen w-full overflow-hidden flex flex-col justify-between px-[var(--page-padding)] py-10"
       >
-        <Image
-          src="/images/project_lumina_chronicles_1791386245032.jpg"
-          alt="Atmospheric architectural environment"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover opacity-35 filter brightness-75 contrast-125 grayscale"
-          referrerPolicy="no-referrer"
-        />
-        {/* Cinematic Vignette */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#08080a] via-transparent to-[#08080a] opacity-90" />
-        <div className="absolute inset-0 bg-radial from-transparent via-[#08080a]/50 to-[#08080a]" />
-      </div>
-
-      {/* Hero Content Layer */}
-      <div
-        ref={textContentRef}
-        className="relative z-10 max-w-[1440px] w-full mx-auto px-6 md:px-12 flex flex-col justify-between h-full pt-32 pb-12 will-change-transform"
-      >
-        {/* Top Kicker */}
-        <div className="flex items-center justify-between text-xs font-mono text-[#a1a1aa] pb-4 border-b border-white/[0.06]">
-          <span className="uppercase tracking-[0.25em] text-[#d8b08c]">
-            {PORTFOLIO_DATA.creator.role}
-          </span>
-          <span className="hidden sm:inline uppercase tracking-widest text-[#71717a]">
-            {PORTFOLIO_DATA.creator.location} &middot; {PORTFOLIO_DATA.creator.availability}
-          </span>
+        {/* Layer 1: Background Atmosphere */}
+        <div
+          ref={bgLayerRef}
+          className="absolute inset-0 w-full h-full will-change-transform scale-100 origin-center pointer-events-none z-0"
+        >
+          <Image
+            src="/images/project_lumina_chronicles_1791386245032.jpg"
+            alt="Cinematic architectural visual atmosphere"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover opacity-60 filter contrast-110 brightness-90"
+            referrerPolicy="no-referrer"
+          />
+          {/* Subtle directional vignette */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#09090b] via-[#09090b]/35 to-[#09090b]/80" />
         </div>
 
-        {/* Central Asymmetrical Monumental Typography */}
-        <div className="my-auto max-w-5xl">
-          <p className="text-xs md:text-sm font-mono uppercase tracking-[0.3em] text-[#a1a1aa] mb-4">
-            Scene 01 &middot; Portfolio of {PORTFOLIO_DATA.creator.name}
-          </p>
+        {/* Layer 2: Mid-ground Aperture Depth Layer */}
+        <div
+          ref={apertureRef}
+          className="absolute inset-0 pointer-events-none z-[1] border-[1px] border-white/[0.04] m-6 md:m-12 opacity-60 transition-opacity"
+        />
 
-          <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tighter text-[#f4f4f6] uppercase leading-[0.92] select-none">
-            Building
-            <br />
-            <span className="text-[#a1a1aa]">Digital</span>
-            <br />
-            <span className="text-[#d8b08c]">Experiences.</span>
-          </h1>
+        {/* Top Header Row / Kicker */}
+        <div
+          ref={metaLayerRef}
+          className="relative z-10 w-full max-w-[1440px] mx-auto flex items-center justify-between editorial-meta text-[#8e8e99] pt-12 pb-4 border-b border-white/[0.06]"
+        >
+          <span className="text-[#d4a373]">{PORTFOLIO_DATA.creator.name}</span>
+          <span className="hidden sm:inline text-[#52525c]">&mdash;</span>
+          <span>{PORTFOLIO_DATA.creator.role}</span>
+          <span className="hidden md:inline text-[#8e8e99]">{PORTFOLIO_DATA.creator.availability}</span>
+        </div>
 
-          <div className="mt-8 md:mt-12 grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
-            <div className="md:col-span-8">
-              <p className="text-base sm:text-lg md:text-xl text-[#a1a1aa] font-light leading-relaxed max-w-xl">
-                {PORTFOLIO_DATA.creator.heroSubstatement}
-              </p>
-            </div>
+        {/* Layer 3: Monumental Typography */}
+        <div
+          ref={titleLayerRef}
+          className="relative z-10 w-full max-w-[1440px] mx-auto my-auto will-change-transform"
+        >
+          <div className="max-w-5xl">
+            <h1 className="display-hero text-[#f5f5f7] select-none tracking-tight">
+              Building
+              <br />
+              <span className="text-[#8e8e99]">Digital</span>
+              <br />
+              <span className="text-[#f5f5f7]">Experiences.</span>
+            </h1>
 
-            <div className="md:col-span-4 flex flex-wrap gap-4 items-center md:justify-end">
-              <button
-                onClick={scrollToWorks}
-                className="px-6 py-3.5 rounded-full bg-[#f4f4f6] hover:bg-[#d8b08c] text-black font-semibold text-xs uppercase tracking-widest transition-all duration-300"
-              >
-                Explore Works &rarr;
-              </button>
+            <div className="mt-8 md:mt-12 grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
+              <div className="md:col-span-8">
+                <p className="body-large text-[#8e8e99] max-w-xl font-light">
+                  {PORTFOLIO_DATA.creator.heroSubstatement}
+                </p>
+              </div>
 
-              <button
-                onClick={scrollToStory}
-                className="px-6 py-3.5 rounded-full border border-white/15 hover:border-white/35 bg-white/[0.02] text-[#f4f4f6] font-medium text-xs uppercase tracking-widest transition-all duration-300"
-              >
-                Read Story
-              </button>
+              <div className="md:col-span-4 flex items-center md:justify-end gap-6">
+                <button onClick={scrollToWorks} className="editorial-link group">
+                  <span>Explore Work</span>
+                  <span className="group-hover:translate-x-1.5 transition-transform">&rarr;</span>
+                </button>
+
+                <button onClick={scrollToStory} className="editorial-link group text-[#8e8e99]">
+                  <span>Story</span>
+                  <span className="group-hover:translate-x-1.5 transition-transform">&rarr;</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
 
         {/* Bottom Scroll Prompt */}
-        <div className="flex items-center justify-between text-xs font-mono text-[#71717a] pt-4 border-t border-white/[0.06]">
-          <span className="uppercase tracking-widest text-[11px]">
-            Scroll controls camera progression
-          </span>
-
-          <button
-            onClick={scrollToWorks}
-            className="flex items-center gap-3 text-[#a1a1aa] hover:text-[#f4f4f6] transition-colors uppercase tracking-widest text-[11px]"
-          >
-            <span>Scroll Down</span>
-            <span className="w-4 h-4 rounded-full border border-white/20 flex items-center justify-center">
-              <span className="w-1 h-1 bg-[#d8b08c] rounded-full animate-bounce" />
-            </span>
-          </button>
+        <div className="relative z-10 w-full max-w-[1440px] mx-auto flex items-center justify-between editorial-meta text-[#52525c] pb-2 border-t border-white/[0.06]">
+          <span>Scroll to direct the camera</span>
+          <span className="text-[#8e8e99]">&darr;</span>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

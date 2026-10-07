@@ -1,5 +1,20 @@
 import type { Metadata } from 'next';
+import { Syne, Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
+
+const displayFont = Syne({
+  subsets: ['latin'],
+  variable: '--font-display',
+  weight: ['400', '600', '700', '800'],
+  display: 'swap',
+});
+
+const bodyFont = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  variable: '--font-body',
+  weight: ['300', '400', '500', '600'],
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: 'Cinematic Portfolio — Creative Developer & Designer',
@@ -49,8 +64,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark scroll-smooth">
-      <body className="bg-[#08080a] text-[#f4f4f6] antialiased selection:bg-[#d8b08c] selection:text-black min-h-screen">
+    <html
+      lang="en"
+      className={`dark scroll-smooth ${displayFont.variable} ${bodyFont.variable}`}
+    >
+      <body className="bg-[#09090b] text-[#f5f5f7] antialiased selection:bg-[#d4a373] selection:text-black min-h-screen font-sans">
         <div className="film-grain" aria-hidden="true" />
         {children}
       </body>

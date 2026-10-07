@@ -17,7 +17,8 @@ export interface ProjectCaseStudy {
   role: string;
   description: string;
   image: string;
-  videoUrl?: string;
+  visualTag: string;
+  aspectRatio: string;
   technologies: string[];
   liveUrl?: string;
   githubUrl?: string;
@@ -48,15 +49,15 @@ export const PORTFOLIO_DATA = {
     location: "[YOUR LOCATION]",
     availability: "[AVAILABLE FOR COMMISSIONS]",
     email: "[your.email@domain.com]",
-    heroStatement: "I CRAFT DIGITAL EXPERIENCES THAT PEOPLE REMEMBER.",
+    heroStatement: "Building Digital Experiences with Architectural Precision.",
     heroSubstatement:
-      "[A short cinematic positioning statement describing your work at the intersection of design, code, and visual storytelling.]",
+      "[A concise positioning statement describing your work at the intersection of creative direction, code architecture, and visual storytelling.]",
     manifesto: {
       line1: "I BUILD...",
       line2: "...DIGITAL EXPERIENCES...",
       line3: "...THAT PEOPLE REMEMBER.",
       supportingText:
-        "[Add your design philosophy here. Describe how you approach code as a creative medium and how every scroll, transition, and composition serves the narrative.]",
+        "[Add your personal design philosophy here. Describe how you treat the viewport as a camera, how every transition serves the narrative, and how code is your creative medium.]",
     },
   },
 
@@ -72,14 +73,16 @@ export const PORTFOLIO_DATA = {
       id: "project-01",
       number: "01",
       title: "[PROJECT 01: CINEMATIC SHOWCASE]",
-      subtitle: "[Interactive Digital Experience]",
-      category: "[Creative Development]",
-      year: "[2026]",
-      role: "[Lead Design & Development]",
+      subtitle: "Interactive Digital Flagship",
+      category: "Creative Development",
+      year: "2026",
+      role: "Lead Direction & Architecture",
+      visualTag: "Full-Bleed Panoramic View",
+      aspectRatio: "21/9",
       description:
         "[A feature presentation of your primary showcase project. Replace this placeholder with a short description of the core concept, artistic direction, and engineering execution.]",
       image: "/images/project_lumina_chronicles_1791386245032.jpg",
-      technologies: ["[React / Next.js]", "[GSAP / Motion]", "[Tailwind CSS]", "[WebGL / Canvas]"],
+      technologies: ["React / Next.js", "GSAP / ScrollTrigger", "Tailwind CSS", "Canvas"],
       liveUrl: "https://[your-project-link.com]",
       githubUrl: "https://github.com/[your-handle]/[project-repo]",
       caseStudy: {
@@ -105,14 +108,16 @@ export const PORTFOLIO_DATA = {
       id: "project-02",
       number: "02",
       title: "[PROJECT 02: SPATIAL SYSTEM]",
-      subtitle: "[Generative Audio-Visual Project]",
-      category: "[Experimental Code]",
-      year: "[2025]",
-      role: "[Creative Engineering]",
+      subtitle: "Generative Audio-Visual Project",
+      category: "Experimental Code",
+      year: "2025",
+      role: "Creative Engineering",
+      visualTag: "Independent Split-Screen Composition",
+      aspectRatio: "4/5",
       description:
         "[A showcase of an interactive, algorithmic, or motion-heavy web project. Describe how user interaction drives the visual scene.]",
       image: "/images/project_kinetic_vortex_1791386255557.jpg",
-      technologies: ["[Interactive Canvas]", "[GSAP]", "[TypeScript]", "[Web Audio API]"],
+      technologies: ["Interactive Canvas", "GSAP Choreography", "TypeScript", "Web Audio"],
       liveUrl: "https://[your-project-link.com]",
       githubUrl: "https://github.com/[your-handle]/[project-repo]",
       caseStudy: {
@@ -138,14 +143,16 @@ export const PORTFOLIO_DATA = {
       id: "project-03",
       number: "03",
       title: "[PROJECT 03: DIGITAL FLAGSHIP]",
-      subtitle: "[Editorial Web Application]",
-      category: "[Full-Stack & UX]",
-      year: "[2025]",
-      role: "[Full-Stack Development]",
+      subtitle: "Editorial Web Application",
+      category: "Full-Stack & UX",
+      year: "2025",
+      role: "Full-Stack Development",
+      visualTag: "Frame-to-Bleed Viewport Expansion",
+      aspectRatio: "16/9",
       description:
         "[An editorial, high-end digital flagship or interactive product experience combining refined typography and micro-interactions.]",
       image: "/images/project_solis_atelier_1791386264775.jpg",
-      technologies: ["[Next.js]", "[TypeScript]", "[Tailwind CSS]", "[Animation Pipeline]"],
+      technologies: ["Next.js App Router", "TypeScript", "Tailwind CSS", "Motion"],
       liveUrl: "https://[your-project-link.com]",
       githubUrl: "https://github.com/[your-handle]/[project-repo]",
       caseStudy: {
@@ -171,14 +178,16 @@ export const PORTFOLIO_DATA = {
       id: "project-04",
       number: "04",
       title: "[PROJECT 04: EXPLORATORY PLATFORM]",
-      subtitle: "[Interactive Tool & Visualization]",
-      category: "[Data & Interface]",
-      year: "[2024]",
-      role: "[Frontend Architecture]",
+      subtitle: "Interactive Tool & Visualization",
+      category: "Data & Interface",
+      year: "2024",
+      role: "Frontend Architecture",
+      visualTag: "Diagonal Layout & Floating Metadata",
+      aspectRatio: "16/10",
       description:
         "[A sophisticated web tool, interactive dashboard, or canvas visualization demonstrating high-density data and visual hierarchy.]",
       image: "/images/project_neoterra_satellite_1791386276521.jpg",
-      technologies: ["[React]", "[TypeScript]", "[Interactive Visuals]", "[Performance Optimization]"],
+      technologies: ["React", "TypeScript", "Spatial Data", "Performance Auditing"],
       liveUrl: "https://[your-project-link.com]",
       githubUrl: "https://github.com/[your-handle]/[project-repo]",
       caseStudy: {
@@ -207,13 +216,13 @@ export const PORTFOLIO_DATA = {
       id: "pillar-01",
       number: "01",
       title: "CREATIVE DEVELOPMENT",
-      tagline: "[Interactive motion, WebGL, shaders & bespoke canvas art]",
+      tagline: "Interactive motion, WebGL, shaders & bespoke canvas art",
       disciplines: [
-        "[GSAP & ScrollTrigger]",
-        "[WebGL & Shaders]",
-        "[Camera Choreography]",
-        "[Kinetic Typography]",
-        "[Micro-Interactions]",
+        "GSAP & ScrollTrigger",
+        "WebGL & Shaders",
+        "Camera Choreography",
+        "Kinetic Typography",
+        "Micro-Interactions",
       ],
       statement:
         "[Describe your approach to creative code: treating the viewport as a camera, pacing user attention, and delivering fluid 60fps animations.]",
@@ -222,13 +231,13 @@ export const PORTFOLIO_DATA = {
       id: "pillar-02",
       number: "02",
       title: "FRONTEND ARCHITECTURE",
-      tagline: "[Scalable, accessible, and performant web foundations]",
+      tagline: "Scalable, accessible, and performant web foundations",
       disciplines: [
-        "[Next.js & React]",
-        "[TypeScript]",
-        "[Tailwind CSS]",
-        "[WCAG AA Accessibility]",
-        "[Core Web Vitals]",
+        "Next.js App Router",
+        "TypeScript Strict Mode",
+        "Tailwind CSS",
+        "WCAG AA Accessibility",
+        "Core Web Vitals",
       ],
       statement:
         "[Describe your engineering standards: strict TypeScript typing, modular component boundaries, semantic markup, and zero layout thrash.]",
@@ -237,13 +246,13 @@ export const PORTFOLIO_DATA = {
       id: "pillar-03",
       number: "03",
       title: "UI / UX ART DIRECTION",
-      tagline: "[Editorial visual hierarchy, typography & brand identity]",
+      tagline: "Editorial visual hierarchy, typography & brand identity",
       disciplines: [
-        "[Editorial Layouts]",
-        "[Typographic Pairing]",
-        "[Design Systems]",
-        "[Wireframing & Prototyping]",
-        "[Spatial Math & Grids]",
+        "Editorial Layouts",
+        "Typographic Pairing",
+        "Design Systems",
+        "Wireframing & Prototyping",
+        "Spatial Math & Grids",
       ],
       statement:
         "[Describe your eye for design: high-contrast typography, controlled whitespace, purposeful color systems, and restraint against generic AI tropes.]",
@@ -252,13 +261,13 @@ export const PORTFOLIO_DATA = {
       id: "pillar-04",
       number: "04",
       title: "FULL-STACK & TOOLING",
-      tagline: "[End-to-end applications, APIs & modern developer workflows]",
+      tagline: "End-to-end applications, APIs & modern developer workflows",
       disciplines: [
-        "[API Architecture]",
-        "[State Orchestration]",
-        "[Database Integrations]",
-        "[CI/CD & Deployment]",
-        "[Automation Pipelines]",
+        "API Architecture",
+        "State Orchestration",
+        "Database Integrations",
+        "CI/CD & Deployment",
+        "Automation Pipelines",
       ],
       statement:
         "[Describe your full-stack capabilities: connecting client-side interactive choreography with reliable server infrastructure.]",

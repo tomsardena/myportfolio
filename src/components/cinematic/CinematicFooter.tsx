@@ -13,27 +13,25 @@ export default function CinematicFooter({ onReplayIntro }: FooterProps) {
   };
 
   return (
-    <footer className="w-full border-t border-white/[0.06] bg-[#08080a] py-16 px-6 md:px-12 text-xs font-mono text-[#71717a]">
+    <footer className="w-full border-t border-white/[0.06] bg-[#09090b] py-16 px-[var(--page-padding)] editorial-meta text-[#52525c]">
       <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
         {/* Left: Creator Name & Copyright */}
         <div className="flex flex-col gap-2">
-          <div className="flex items-center gap-3 text-[#f4f4f6]">
-            <span className="font-semibold text-sm tracking-tight uppercase">
-              {PORTFOLIO_DATA.creator.name}
-            </span>
-            <span className="text-[#71717a]">&middot;</span>
-            <span className="text-xs text-[#a1a1aa]">{PORTFOLIO_DATA.creator.role}</span>
+          <div className="flex items-center gap-3 text-[#f5f5f7]">
+            <span className="font-semibold">{PORTFOLIO_DATA.creator.name}</span>
+            <span>&middot;</span>
+            <span className="text-[#8e8e99]">{PORTFOLIO_DATA.creator.role}</span>
           </div>
-          <p className="text-[#71717a]">
+          <p className="text-[#52525c]">
             &copy; {new Date().getFullYear()} {PORTFOLIO_DATA.creator.name}. All rights reserved.
           </p>
         </div>
 
-        {/* Center: Replay Title Sequence */}
-        <div className="flex items-center gap-6 text-[#a1a1aa]">
+        {/* Center: Replay Intro */}
+        <div className="flex items-center gap-6 text-[#8e8e99]">
           <button
             onClick={onReplayIntro}
-            className="hover:text-[#d8b08c] transition-colors uppercase tracking-wider"
+            className="hover:text-[#d4a373] transition-colors"
           >
             Replay Title Sequence
           </button>
@@ -43,12 +41,10 @@ export default function CinematicFooter({ onReplayIntro }: FooterProps) {
         <div className="flex items-center gap-4">
           <button
             onClick={scrollToTop}
-            className="group flex items-center gap-2 text-[#a1a1aa] hover:text-[#f4f4f6] transition-colors uppercase tracking-widest"
+            className="editorial-link group text-[#8e8e99] hover:text-[#f5f5f7]"
           >
             <span>Back to Top</span>
-            <span className="w-6 h-6 rounded-full border border-white/10 flex items-center justify-center group-hover:border-[#d8b08c] transition-colors">
-              &uarr;
-            </span>
+            <span className="group-hover:-translate-y-1 transition-transform">&uarr;</span>
           </button>
         </div>
       </div>
